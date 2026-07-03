@@ -1,0 +1,205 @@
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial;
+}
+
+body{
+background:#eef3f9;
+padding:30px;
+}
+
+.container{
+max-width:900px;
+margin:auto;
+background:white;
+padding:25px;
+border-radius:10px;
+box-shadow:0 10px 20px rgba(0,0,0,0.15);
+}
+
+/* HEADER TOP */
+.bill-top{
+display:flex;
+justify-content:space-between;
+align-items:flex-start;
+padding:20px;
+background:white;
+border-radius:12px;
+box-shadow:0 5px 15px rgba(0,0,0,0.08);
+margin-bottom:20px;
+}
+
+.shop-name h1{
+font-size:44px;
+color:#0d47a1;
+margin:0;
+line-height:1.1;
+}
+
+.shop-name small{
+color:#666;
+}
+
+.shop-info{
+text-align:right;
+line-height:1.8;
+font-size:15px;
+}
+
+.shop-info b{
+color:#0d47a1;
+}
+
+/* BOXES */
+.customer-box,
+.custom-service,
+.bill-box{
+background:#fafafa;
+padding:15px;
+margin-bottom:20px;
+border-radius:10px;
+border:1px solid #ddd;
+box-shadow:0 5px 15px rgba(0,0,0,0.08);
+}
+
+h2{
+color:#1565c0;
+margin-bottom:10px;
+}
+
+input{
+width:100%;
+padding:10px;
+margin:8px 0;
+border:1px solid #ccc;
+border-radius:5px;
+font-size:16px;
+}
+
+input:focus{
+border-color:#1976d2;
+box-shadow:0 0 8px rgba(25,118,210,.25);
+outline:none;
+}
+
+/* TABLE */
+table{
+width:100%;
+border-collapse:collapse;
+margin-top:10px;
+border-radius:8px;
+overflow:hidden;
+}
+
+th{
+background:#1565c0;
+color:white;
+padding:10px;
+}
+
+td{
+text-align:center;
+padding:8px;
+border:1px solid #ddd;
+}
+
+/* BUTTON */
+button{
+padding:10px 18px;
+border:none;
+background:#1976d2;
+color:white;
+border-radius:5px;
+cursor:pointer;
+font-size:16px;
+font-weight:bold;
+transition:0.3s;
+}
+
+button:hover{
+background:#0d47a1;
+transform:translateY(-2px);
+}
+
+/* TOTAL */
+.total-box{
+text-align:right;
+margin-top:15px;
+font-size:20px;
+color:red;
+font-weight:bold;
+}
+
+/* SEARCH SUGGESTION */
+.suggestion{
+padding:10px;
+border:1px solid #ddd;
+background:white;
+cursor:pointer;
+transition:0.2s;
+}
+
+.suggestion:hover{
+background:#e3f2fd;
+transform:translateX(5px);
+}
+
+/* RESPONSIVE */
+@media(max-width:700px){
+.bill-top{
+flex-direction:column;
+text-align:center;
+}
+
+.shop-info{
+text-align:center;
+margin-top:15px;
+}
+}
+
+/* PRINT FIX */
+@media print{
+
+body{
+background:white !important;
+padding:0 !important;
+}
+
+.container{
+box-shadow:none !important;
+margin:0 !important;
+padding:10px !important;
+}
+
+.bill-top{
+display:flex !important;
+justify-content:space-between !important;
+align-items:flex-start !important;
+page-break-inside:avoid;
+}
+
+.shop-info{
+text-align:right !important;
+}
+
+.customer-box,
+.custom-service,
+.bill-box{
+box-shadow:none !important;
+}
+
+.custom-service,
+.buttons{
+display:none !important;
+}
+
+table{
+font-size:12px !important;
+}
+
+th,td{
+padding:5px !important;
+}
+}
