@@ -3,7 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>CSC Billing System</title>
+
 <link rel="stylesheet" href="style.css">
 </head>
 
@@ -11,68 +13,174 @@
 
 <div class="container">
 
-<!-- HEADER -->
-<div class="bill-top">
+    <!-- ================= HEADER ================= -->
 
-    <div class="shop-name">
-        <h1>श्री ऑनलाइन</h1>
-        <small>Common Services Centre (CSC) </small>
+    <div class="bill-top">
+
+        <div class="shop-name">
+            <h1>श्री ऑनलाइन</h1>
+            <small>Common Services Centre (CSC)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;आपले सरकार सेवा केंद्र  </small></br>
+        </div>
+
+        <div class="shop-info">
+            <div><b>👤 Owner :</b> निलेश मराठे</div>
+            <div><b>📞 Mobile :</b> 9637936150</div>
+            <div><b>✉ Email :</b> marathen20@gmail.com</div>
+            <div><b>📍 Address :</b> युनियन बँक जवळ, सोसायटी मध्ये, केऱ्हाळे बु.</div>
+        </div>
+
     </div>
 
-    <div class="shop-info">
-        <div>👤 <b>Owner:</b> निलेश मराठे</div>
-        <div>📞 <b>Mobile:</b> 9637936150</div>
-        <div>✉️ <b>Email:</b> marathen20@gmail.com</div>
-        <div>📍 <b>Address:</b> युनियन बँक जवळ,सोसायटी मध्ये केऱ्हाळे बु.</div>
+
+    <!-- ================= CUSTOMER DETAILS ================= -->
+
+    <div class="customer-box">
+
+        <h2>Customer Details</h2>
+
+        <div class="customer-grid">
+
+            <div>
+                <label>Customer Name</label>
+                <input
+                    type="text"
+                    id="customerName"
+                    placeholder="Enter Customer Name">
+            </div>
+
+            <div>
+                <label>Mobile Number</label>
+                <input
+                    type="text"
+                    id="mobileNumber"
+                    placeholder="Enter Mobile Number">
+            </div>
+
+            <div>
+                <label>Date</label>
+                <input
+                    type="date"
+                    id="billDate">
+            </div>
+
+        </div>
+
     </div>
 
-</div>
 
-<!-- CUSTOMER -->
-<div class="customer-box">
-<h2>Customer Details</h2>
+    <!-- ================= SEARCH ================= -->
 
-<input type="text" id="customerName" placeholder="Customer Name">
-<input type="text" id="mobileNumber" placeholder="Mobile Number">
-<input type="date" id="billDate">
-</div>
+    <div class="custom-service">
 
-<!-- SEARCH -->
-<div class="custom-service">
-<h2>Search Service</h2>
-</div>
+        <h2>Add Service</h2>
 
-<!-- BILL -->
-<div class="bill-box">
+        <!-- Search box is created from script.js -->
 
-<div class="bill-header">
-<h2>Customer Bill</h2>
-<strong>Bill No: <span id="billNumber">1001</span></strong>
-</div>
+    </div>
 
-<table>
-<thead>
-<tr>
-<th>Service</th>
-<th>Price</th>
-<th>Qty</th>
-<th>Amount</th>
-<th>Action</th>
-</tr>
-</thead>
 
-<tbody id="billItems"></tbody>
-</table>
+    <!-- ================= BILL ================= -->
 
-<div class="total-box">
-<h2>Total: ₹<span id="total">0</span></h2>
-</div>
+    <div class="bill-box">
 
-<div class="buttons">
-<button onclick="window.print()">🖨 Print Bill</button>
-</div>
+        <div class="bill-header">
 
-</div>
+            <h2>Customer Bill</h2>
+
+            <div class="bill-number">
+                Bill No :
+                <span id="billNumber">1001</span>
+            </div>
+
+        </div>
+
+        <table>
+
+            <thead>
+
+            <tr>
+
+                <th>Service</th>
+
+                <th>Price</th>
+
+                <th>Qty</th>
+
+                <th>Amount</th>
+
+                <th>Action</th>
+
+            </tr>
+
+            </thead>
+
+            <tbody id="billItems">
+
+            </tbody>
+
+        </table>
+
+
+        <!-- TOTAL -->
+
+        <div class="total-box">
+
+            <h2>
+
+                Grand Total :
+                ₹<span id="total">0</span>
+
+            </h2>
+
+        </div>
+
+
+        <!-- THANK YOU -->
+
+        <div class="thank-you">
+
+            <h3>🙏 Thank You! Visit Again 🙏</h3>
+
+            <p>CSC | Online Services | Digital Solutions</p>
+
+        </div>
+
+
+        <!-- SIGNATURE -->
+
+        <div class="signature">
+
+            _______________________
+
+            <br>
+
+            <strong>Authorized Signature</strong>
+
+        </div>
+
+
+        <!-- PRINT LOGO -->
+
+        <div class="print-logo">
+
+            <img src="logo.png" alt="Shop Logo">
+
+        </div>
+
+
+        <!-- BUTTON -->
+
+        <div class="buttons">
+
+            <button onclick="window.print()">
+
+                🖨 Print Bill
+
+            </button>
+
+        </div>
+
+    </div>
 
 </div>
 
