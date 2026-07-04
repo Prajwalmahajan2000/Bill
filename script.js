@@ -94,46 +94,124 @@ const billNumber = document.getElementById("billNumber");
 let billNo = localStorage.getItem("billNo") || 1001;
 billNumber.innerText = billNo;
 
-// SEARCH BOX CREATE
+// ================= SEARCH BOX =================
+
 const input = document.createElement("input");
 input.placeholder = "Search Service (Aadhaar, PAN...)";
 input.style.width = "100%";
 input.style.padding = "10px";
+input.autocomplete = "off";
 
 const box = document.createElement("div");
 
 document.querySelector(".custom-service").appendChild(input);
 document.querySelector(".custom-service").appendChild(box);
 
-// SEARCH
+let filteredServices = [];
+let selectedIndex = -1;
+
+// AUTO DATE
+document.getElementById("billDate").value =
+new Date().toISOString().split("T")[0];
+
+// ================= SMART SEARCH (FIXED) =================
+function getScore(name, value) {
+    let score = 0;
+
+    if (name.startsWith(value)) score += 100;
+    if (name.split(" ").some(w => w.startsWith(value))) score += 80;
+    if (name.includes(value)) score += 50;
+    if (value.includes("lami") && name.includes("lamination")) score += 30;
+
+    return score;
+}
+
+// RENDER
+function render() {
+    box.innerHTML = "";
+
+    filteredServices.forEach((s, i) => {
+
+        let div = document.createElement("div");
+        div.className = "suggestion";
+
+        if (i === selectedIndex) {
+            div.classList.add("active");
+        }
+
+        div.innerText = `${s.name} - ₹${s.price}`;
+
+        div.onclick = () => {
+            addItem(s);
+            clearSearch();
+        };
+
+        box.appendChild(div);
+    });
+}
+
+function clearSearch() {
+    input.value = "";
+    box.innerHTML = "";
+    filteredServices = [];
+    selectedIndex = -1;
+    input.focus();
+}
+
+// INPUT (FIXED SEARCH)
 input.addEventListener("input", function () {
 
-box.innerHTML = "";
+    let value = this.value.toLowerCase().trim();
 
-let value = this.value.toLowerCase();
+    if (!value) {
+        box.innerHTML = "";
+        filteredServices = [];
+        selectedIndex = -1;
+        return;
+    }
 
-if(value === "") return;
+    filteredServices = serviceDB
+        .map(s => ({
+            ...s,
+            score: getScore(s.name.toLowerCase(), value)
+        }))
+        .filter(s => s.score > 0)
+        .sort((a, b) => b.score - a.score);
 
-serviceDB
-.filter(s => s.name.toLowerCase().includes(value))
-.forEach(s => {
-
-let div = document.createElement("div");
-
-div.className = "suggestion";
-
-div.innerText = `${s.name} - ₹${s.price}`;
-
-div.onclick = () => {
-addItem(s);
-input.value = "";
-box.innerHTML = "";
-};
-
-box.appendChild(div);
-
+    selectedIndex = 0;
+    render();
 });
 
+// KEYBOARD CONTROL
+input.addEventListener("keydown", function (e) {
+
+    if (filteredServices.length === 0) return;
+
+    if (e.key === "ArrowDown") {
+        e.preventDefault();
+        selectedIndex++;
+        if (selectedIndex >= filteredServices.length) selectedIndex = 0;
+        render();
+    }
+
+    else if (e.key === "ArrowUp") {
+        e.preventDefault();
+        selectedIndex--;
+        if (selectedIndex < 0) selectedIndex = filteredServices.length - 1;
+        render();
+    }
+
+    else if (e.key === "Enter") {
+        e.preventDefault();
+
+        if (selectedIndex >= 0) {
+            addItem(filteredServices[selectedIndex]);
+        } else {
+            addItem(filteredServices[0]);
+        }
+
+        clearSearch();
+    }
 });
 
 // ADD ITEM
