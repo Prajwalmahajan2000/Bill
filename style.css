@@ -1,205 +1,315 @@
 *{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:Arial;
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
 }
 
 body{
-background:#eef3f9;
-padding:30px;
+    background:#eef3f9;
+    padding:30px;
 }
 
 .container{
-max-width:900px;
-margin:auto;
-background:white;
-padding:25px;
-border-radius:10px;
-box-shadow:0 10px 20px rgba(0,0,0,0.15);
+    max-width:950px;
+    margin:auto;
+    background:#fff;
+    padding:25px;
+    border-radius:12px;
+    box-shadow:0 10px 25px rgba(0,0,0,.15);
 }
 
-/* HEADER TOP */
+/* ================= HEADER ================= */
+
 .bill-top{
-display:flex;
-justify-content:space-between;
-align-items:flex-start;
-padding:20px;
-background:white;
-border-radius:12px;
-box-shadow:0 5px 15px rgba(0,0,0,0.08);
-margin-bottom:20px;
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-start;
+    border-bottom:3px solid #1565c0;
+    padding-bottom:15px;
+    margin-bottom:20px;
 }
 
 .shop-name h1{
-font-size:44px;
-color:#0d47a1;
-margin:0;
-line-height:1.1;
+    color:#1565c0;
+    font-size:42px;
+    margin-bottom:5px;
 }
 
 .shop-name small{
-color:#666;
+    color:#666;
+    font-size:16px;
 }
 
 .shop-info{
-text-align:right;
-line-height:1.8;
-font-size:15px;
+    text-align:right;
+    line-height:1.8;
+    font-size:15px;
 }
 
 .shop-info b{
-color:#0d47a1;
+    color:#1565c0;
 }
 
-/* BOXES */
+/* ================= BOX ================= */
+
 .customer-box,
 .custom-service,
 .bill-box{
-background:#fafafa;
-padding:15px;
-margin-bottom:20px;
-border-radius:10px;
-border:1px solid #ddd;
-box-shadow:0 5px 15px rgba(0,0,0,0.08);
+    background:#fafafa;
+    border:1px solid #ddd;
+    border-radius:10px;
+    padding:20px;
+    margin-top:20px;
+    box-shadow:0 5px 15px rgba(0,0,0,.08);
 }
 
 h2{
-color:#1565c0;
-margin-bottom:10px;
+    color:#1565c0;
+    margin-bottom:15px;
+}
+
+/* ================= CUSTOMER ================= */
+
+.customer-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:15px;
+}
+
+.customer-grid label{
+    font-weight:bold;
+    color:#444;
 }
 
 input{
-width:100%;
-padding:10px;
-margin:8px 0;
-border:1px solid #ccc;
-border-radius:5px;
-font-size:16px;
+    width:100%;
+    margin-top:6px;
+    padding:10px;
+    border:1px solid #bbb;
+    border-radius:6px;
+    font-size:15px;
 }
 
 input:focus{
-border-color:#1976d2;
-box-shadow:0 0 8px rgba(25,118,210,.25);
-outline:none;
+    border-color:#1565c0;
+    outline:none;
+    box-shadow:0 0 6px rgba(21,101,192,.3);
 }
 
-/* TABLE */
+/* ================= BILL HEADER ================= */
+
+.bill-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:15px;
+}
+
+.bill-number{
+    background:#1565c0;
+    color:white;
+    padding:8px 18px;
+    border-radius:20px;
+    font-weight:bold;
+}
+
+/* ================= TABLE ================= */
+
 table{
-width:100%;
-border-collapse:collapse;
-margin-top:10px;
-border-radius:8px;
-overflow:hidden;
+    width:100%;
+    border-collapse:collapse;
+}
+
+thead{
+    background:#1565c0;
+    color:white;
 }
 
 th{
-background:#1565c0;
-color:white;
-padding:10px;
+    padding:12px;
 }
 
 td{
-text-align:center;
-padding:8px;
-border:1px solid #ddd;
+    padding:10px;
+    border:1px solid #ddd;
+    text-align:center;
 }
 
-/* BUTTON */
+tbody tr:nth-child(even){
+    background:#f8f8f8;
+}
+
+.qty{
+    width:70px;
+}
+
+/* ================= BUTTON ================= */
+
+.buttons{
+    margin-top:20px;
+    text-align:center;
+}
+
 button{
-padding:10px 18px;
-border:none;
-background:#1976d2;
-color:white;
-border-radius:5px;
-cursor:pointer;
-font-size:16px;
-font-weight:bold;
-transition:0.3s;
+    background:#1565c0;
+    color:white;
+    border:none;
+    padding:12px 30px;
+    border-radius:8px;
+    font-size:17px;
+    cursor:pointer;
+    transition:.3s;
 }
 
 button:hover{
-background:#0d47a1;
-transform:translateY(-2px);
+    background:#0d47a1;
 }
 
-/* TOTAL */
+/* ================= TOTAL ================= */
+
 .total-box{
-text-align:right;
-margin-top:15px;
-font-size:20px;
-color:red;
-font-weight:bold;
+    margin-top:20px;
+    text-align:right;
 }
 
-/* SEARCH SUGGESTION */
+.total-box h2{
+    display:inline-block;
+    background:#e3f2fd;
+    color:#d32f2f;
+    padding:10px 20px;
+    border-radius:8px;
+}
+
+/* ================= THANK YOU ================= */
+
+.thank-you{
+    text-align:center;
+    margin-top:35px;
+    color:#444;
+}
+
+.thank-you h3{
+    color:#1565c0;
+}
+
+/* ================= SIGNATURE ================= */
+
+.signature{
+    text-align:right;
+    margin-top:40px;
+    font-size:15px;
+}
+
+/* ================= LOGO ================= */
+
+.bill-box{
+    position:relative;
+    padding-bottom:110px;
+}
+
+.print-logo{
+    display:none;
+}
+
+/* ================= SEARCH SUGGESTION ================= */
+
 .suggestion{
-padding:10px;
-border:1px solid #ddd;
-background:white;
-cursor:pointer;
-transition:0.2s;
+    padding:10px;
+    background:white;
+    border:1px solid #ddd;
+    cursor:pointer;
 }
 
 .suggestion:hover{
-background:#e3f2fd;
-transform:translateX(5px);
+    background:#e3f2fd;
 }
 
-/* RESPONSIVE */
+/* ================= MOBILE ================= */
+
 @media(max-width:700px){
+
 .bill-top{
-flex-direction:column;
-text-align:center;
+    flex-direction:column;
+    text-align:center;
 }
 
 .shop-info{
-text-align:center;
-margin-top:15px;
-}
+    text-align:center;
+    margin-top:15px;
 }
 
-/* PRINT FIX */
+.bill-header{
+    flex-direction:column;
+    gap:10px;
+}
+
+table{
+    font-size:12px;
+}
+
+}
+
+/* ================= PRINT ================= */
+
 @media print{
 
 body{
-background:white !important;
-padding:0 !important;
+    background:white;
+    padding:0;
 }
 
 .container{
-box-shadow:none !important;
-margin:0 !important;
-padding:10px !important;
-}
-
-.bill-top{
-display:flex !important;
-justify-content:space-between !important;
-align-items:flex-start !important;
-page-break-inside:avoid;
-}
-
-.shop-info{
-text-align:right !important;
-}
-
-.customer-box,
-.custom-service,
-.bill-box{
-box-shadow:none !important;
+    box-shadow:none;
+    border:none;
+    max-width:100%;
 }
 
 .custom-service,
 .buttons{
-display:none !important;
+    display:none;
+}
+
+.customer-box,
+.bill-box{
+    box-shadow:none;
+    border:1px solid #999;
 }
 
 table{
-font-size:12px !important;
+    font-size:12px;
 }
 
 th,td{
-padding:5px !important;
+    padding:6px;
 }
+
+.print-logo{
+    display:block;
+    position:absolute;
+    right:10px;
+    bottom:10px;
+}
+
+.print-logo img{
+    width:113px;
+    height:auto;
+}
+
+.signature{
+    margin-top:60px;
+}
+
+}
+
+/* ================= SEARCH SELECTION ================= */
+
+.suggestion.active{
+    background:#1565c0;
+    color:#fff;
+    font-weight:bold;
+}
+
+.suggestion{
+    transition:0.2s;
 }
