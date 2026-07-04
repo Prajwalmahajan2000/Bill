@@ -280,3 +280,17 @@ billNo++;
 localStorage.setItem("billNo",billNo);
 billNumber.innerText = billNo;
 };
+
+// MOBILE NUMBER VALIDATION
+const mobileInput = document.getElementById("mobileNumber");
+
+mobileInput.addEventListener("input", function () {
+    this.value = this.value.replace(/\D/g, "").slice(0, 10);
+});
+
+// CUSTOMER NAME VALIDATION
+const customerNameInput = document.getElementById("customerName");
+
+customerNameInput.addEventListener("input", function () {
+    this.value = this.value.replace(/[^a-zA-Z ]/g, "");
+});
